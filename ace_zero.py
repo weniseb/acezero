@@ -401,10 +401,11 @@ if __name__ == '__main__':
         if opt.render_visualization:
             _logger.info("Rendering final sweep.")
 
-        zutil.run_cmd(["./render_final_sweep.py",
-                       zutil.get_render_path(opt.results_folder),
-                       "--render_marker_size", opt.render_marker_size
-                       ])
+            ### TODO: Change path back to ./... like in original implementation
+            zutil.run_cmd(["./render_final_sweep.py",
+                           zutil.get_render_path(opt.results_folder),
+                           "--render_marker_size", opt.render_marker_size
+                           ])
 
             _logger.info("Converting to video.")
 
@@ -443,21 +444,23 @@ if __name__ == '__main__':
                 vis_buffer_file = zutil.get_render_path(opt.results_folder) / f"{iteration_id}_mapping.pkl",
                 _logger.info(f"Exporting point cloud from visualisation buffer file: {vis_buffer_file}")
 
-            zutil.run_cmd(["./export_point_cloud.py",
-                           opt.results_folder / "pc_final.ply",
-                           "--visualization_buffer", vis_buffer_file,
-                           "--convention", "opencv",
-                           ])
-        else:
-            _logger.info(f"Exporting point cloud from last network and pose file.")
+                ### TODO: Change path back to ./... like in original implementation
+                zutil.run_cmd(["./export_point_cloud.py",
+                               opt.results_folder / "pc_final.ply",
+                               "--visualization_buffer", vis_buffer_file,
+                               "--convention", "opencv",
+                               ])
+            else:
+                _logger.info(f"Exporting point cloud from last network and pose file.")
 
-            zutil.run_cmd(["./export_point_cloud.py",
-                           opt.results_folder / "pc_final.ply",
-                           "--network", opt.results_folder / f"{iteration_id}.pt",
-                           "--pose_file", opt.results_folder / f"poses_final.txt",
-                           "--convention", "opencv",
-                           "--dense_point_cloud", opt.dense_point_cloud,
-                           ])
+                ### TODO: Change path back to ./... like in original implementation
+                zutil.run_cmd(["./export_point_cloud.py",
+                               opt.results_folder / "pc_final.ply",
+                               "--network", opt.results_folder / f"{iteration_id}.pt",
+                               "--pose_file", opt.results_folder / f"poses_final.txt",
+                               "--convention", "opencv",
+                               "--dense_point_cloud", opt.dense_point_cloud,
+                               ])
 
         stats_report = "Time (min) | Iterations | Reg. Rate @500 | @1000 | @2000 | @4000\n"
         stats_report += f"{reconstruction_time / 60:.1f} " \
