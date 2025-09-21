@@ -1,0 +1,1 @@
+python export_cameras.py /home/sebastian/repos/master_thesis/test/06_08/res_ace0/poses_final.txt /home/sebastian/repos/master_thesis/test/06_08/cameras.ply

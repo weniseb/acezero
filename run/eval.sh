@@ -1,0 +1,1 @@
+python eval_poses.py /home/sebastian/repos/master_thesis/test/06_08/manual/res_ace0/poses_final.txt "/home/sebastian/repos/master_thesis/test/06_08/manual/poses/*.txt"

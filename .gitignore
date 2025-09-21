@@ -16,3 +16,10 @@ split_files/
 results_*/
 
 images/
+
+*.JPG
+*.jpg
+*.png
+*.jpeg
+
+reconstructions/
